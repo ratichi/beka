@@ -1,9 +1,6 @@
-import createNextIntlPlugin from 'next-intl/plugin';
-
-const withNextIntl = createNextIntlPlugin('./next-intl.config.mjs');
-
+/** @type {import('next').NextConfig} */
 const nextConfig = {
-  // keep empty or add other non-i18n options
+  reactStrictMode: true
 };
 
-export default withNextIntl(nextConfig);
+export default nextConfig;
