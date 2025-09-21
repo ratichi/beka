@@ -37,6 +37,6 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5); /* adjust opacity & color */
+  background: rgba(0, 0, 0, 0.2); /* adjust opacity & color */
   z-index: -1;
 }
