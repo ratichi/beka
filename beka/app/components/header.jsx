@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Facebook, Instagram, ChevronDown } from 'lucide-react';
 import { usePathname } from 'next/navigation';
+import Image from 'next/image';
 import ServicesMenu from './servicemenu';
 
 export default function Header({ locale, messages }) {
@@ -33,9 +34,34 @@ export default function Header({ locale, messages }) {
     >
       <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo */}
-        <Link href={`/${locale}`} className="text-2xl font-extrabold text-blue-600 tracking-wide">
-        logo
-        </Link>
+        <Link href={`/${locale}`} className="flex items-center gap-3">
+          {/* Animated, Tailwind-sized logo box */}
+          <motion.div
+            initial={{ opacity: 0, y: -8, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ delay: 0.35, duration: 0.5, ease: 'easeOut' }}
+            whileHover={{ scale: 1.03 }}
+            className="relative w-40 h-12 md:w-48 md:h-14 lg:w-56 lg:h-16"  /* <-- control size here */
+          >
+            <Image
+              src="/logo.png"
+              alt="Company Logo"
+              fill                 /* uses the parent box size */
+              priority
+              className="object-contain"  /* keeps aspect ratio */
+            />
+          </motion.div>
+
+          {/* Optional brand text */}
+          <motion.span
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.45, duration: 0.45, ease: 'easeOut' }}
+            className="hidden sm:inline text-xl md:text-2xl font-extrabold tracking-wide text-blue-600"
+          >
+          
+          </motion.span>
+        </Link> 
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8 relative">
