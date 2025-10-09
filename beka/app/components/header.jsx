@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Facebook, Instagram, ChevronDown } from 'lucide-react';
 import { usePathname } from 'next/navigation';
+import ServicesMenu from './servicemenu';
 
 export default function Header({ locale, messages }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -33,7 +34,7 @@ export default function Header({ locale, messages }) {
       <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo */}
         <Link href={`/${locale}`} className="text-2xl font-extrabold text-blue-600 tracking-wide">
-          LOGO
+        logo
         </Link>
 
         {/* Desktop nav */}
@@ -51,10 +52,11 @@ export default function Header({ locale, messages }) {
 
           {/* Services dropdown (opens on hover) */}
           <div className="relative group">
-            <button className="flex items-center gap-1 text-gray-700 font-medium hover:text-blue-600 transition">
+            {/* <button className="flex items-center gap-1 text-gray-700 font-medium hover:text-blue-600 transition">
               {locale === 'ka' ? 'სერვისები' : 'Services'}
               <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
-            </button>
+            </button> */}
+             <ServicesMenu locale={locale} />
 
             <AnimatePresence>
               <motion.div
@@ -64,27 +66,7 @@ export default function Header({ locale, messages }) {
                 transition={{ duration: 0.2 }}
                 className="absolute top-8 left-0 bg-white shadow-lg rounded-lg py-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all"
               >
-                {services.map((service) => {
-                  const active = hoveredService === service.key;
-                  return (
-                    <Link
-                      key={service.key}
-                      href={`/${locale}/services/${service.key}`}
-                      className="relative block px-4 py-2 text-gray-700 overflow-hidden"
-                      onMouseEnter={() => setHoveredService(service.key)}
-                      onMouseLeave={() => setHoveredService(null)}
-                    >
-                      {/* liquid fill (left -> right) */}
-                      <span
-                        className={
-                          `absolute inset-0 bg-blue-500/20 origin-left transition-transform duration-500 ease-[cubic-bezier(.22,1,.36,1)] ` +
-                          (active ? 'scale-x-100' : 'scale-x-0')
-                        }
-                      />
-                      <span className="relative z-10">{service.label}</span>
-                    </Link>
-                  );
-                })}
+                
               </motion.div>
             </AnimatePresence>
           </div>
