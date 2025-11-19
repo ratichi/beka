@@ -21,7 +21,7 @@ export default function Footer({ locale }) {
         </div>
 
         {/* Navigation */}
-        <div className="flex items-center gap-15 justify-center">
+        <div className="flex flex-col items-center gap-5 justify-center">
           <Link href={`/${locale}/services`} className="hover:text-white transition">Services</Link>
           <Link href={`/${locale}/products`} className="hover:text-white transition">Products</Link>
         </div>

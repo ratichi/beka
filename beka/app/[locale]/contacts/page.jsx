@@ -65,7 +65,7 @@ export default  async function  ContactPage({ params }) {
         </motion.div>
 
         {/* Address */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.6 }}
@@ -74,7 +74,7 @@ export default  async function  ContactPage({ params }) {
           <MapPin className="w-8 h-8 text-blue-600 mb-3" />
           <h3 className="font-semibold">{t.address}</h3>
           <p className="text-gray-600">Tbilisi, Georgia</p>
-        </motion.div>
+        </motion.div> */}
       </div>
 
       {/* Socials */}
