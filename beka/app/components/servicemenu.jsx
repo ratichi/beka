@@ -52,22 +52,22 @@ export default function ServicesMenu({ locale }) {
                 {categories.map((cat) => {
                   const isActive = cat.key === activeCategory;
                   return (
-                    <button
-                      key={cat.key}
-                      type="button"
-                      onMouseEnter={() => setActiveCategory(cat.key)}
-                      className={[
-                        'w-full text-left px-3 py-2 rounded-xl transition flex items-center justify-between',
-                        isActive
-                          ? 'bg-blue-50 text-blue-700'
-                          : 'text-gray-700 hover:bg-gray-50'
-                      ].join(' ')}
-                    >
-                      <span className="font-medium">{cat.label}</span>
-                      <span className="text-xs text-gray-400">
-                        {servicesData[cat.key]?.items?.length || 0}
-                      </span>
-                    </button>
+                    <Link
+                    key={cat.key}
+                    href={`/${locale}/services/${cat.key}`}
+                    onMouseEnter={() => setActiveCategory(cat.key)}
+                    className={[
+                      'w-full text-left px-3 py-2 rounded-xl transition flex items-center justify-between',
+                      cat.key === activeCategory
+                        ? 'bg-blue-50 text-blue-700'
+                        : 'text-gray-700 hover:bg-gray-50'
+                    ].join(' ')}
+                  >
+                    <span className="font-medium">{cat.label}</span>
+                    <span className="text-xs text-gray-400">
+                      {servicesData[cat.key]?.items?.length || 0}
+                    </span>
+                  </Link>
                   );
                 })}
 
