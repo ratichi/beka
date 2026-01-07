@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node -p \"'Next version: ' + require('next/package.json').version\" && node -p \"'React version: ' + require('react/package.json').version\"",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
