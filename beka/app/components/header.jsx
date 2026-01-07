@@ -77,25 +77,7 @@ export default function Header({ locale, messages }) {
           ))}
 
           {/* Services dropdown (opens on hover) */}
-          <div className="relative group">
-            {/* <button className="flex items-center gap-1 text-gray-700 font-medium hover:text-blue-600 transition">
-              {locale === 'ka' ? 'სერვისები' : 'Services'}
-              <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
-            </button> */}
-             <ServicesMenu locale={locale} />
-
-            <AnimatePresence>
-              <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.2 }}
-                className="absolute top-8 left-0 bg-white shadow-lg rounded-lg py-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all"
-              >
-                
-              </motion.div>
-            </AnimatePresence>
-          </div>
+          <ServicesMenu locale={locale} />
 
           {/* Social icons */}
           <div className="flex gap-4 ml-4">
@@ -129,6 +111,69 @@ export default function Header({ locale, messages }) {
           {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
+      <AnimatePresence>
+  {menuOpen && (
+    <motion.div
+      initial={{ height: 0, opacity: 0 }}
+      animate={{ height: 'auto', opacity: 1 }}
+      exit={{ height: 0, opacity: 0 }}
+      transition={{ duration: 0.25, ease: 'easeOut' }}
+      className="md:hidden overflow-hidden bg-white border-t"
+    >
+      <div className="px-4 py-4 space-y-3">
+        {/* nav links */}
+        {navItems.map(({ key, href }) => (
+          <Link
+            key={key}
+            href={href}
+            onClick={() => setMenuOpen(false)}
+            className="block px-3 py-2 rounded-lg text-gray-800 font-medium hover:bg-gray-100 transition"
+          >
+            {messages[key]}
+          </Link>
+        ))}
+
+        {/* services accordion */}
+        <MobileServicesMenu
+          locale={locale}
+          onNavigate={() => setMenuOpen(false)}
+        />
+
+        {/* socials */}
+        <div className="flex gap-4 px-2 pt-2">
+          <a href="https://facebook.com" target="_blank" rel="noreferrer" className="p-2 rounded-lg hover:bg-gray-100 transition">
+            <Facebook className="w-5 h-5 text-gray-700" />
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noreferrer" className="p-2 rounded-lg hover:bg-gray-100 transition">
+            <Instagram className="w-5 h-5 text-gray-700" />
+          </a>
+        </div>
+
+        {/* language switcher */}
+        <div className="flex gap-2 pt-2">
+          <Link
+            href={pathname.replace(/^\/(en|ka)/, '/en')}
+            onClick={() => setMenuOpen(false)}
+            className={`flex-1 text-center px-3 py-2 rounded-lg font-semibold ${
+              locale === 'en' ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700'
+            }`}
+          >
+            EN
+          </Link>
+          <Link
+            href={pathname.replace(/^\/(en|ka)/, '/ka')}
+            onClick={() => setMenuOpen(false)}
+            className={`flex-1 text-center px-3 py-2 rounded-lg font-semibold ${
+              locale === 'ka' ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700'
+            }`}
+          >
+            KA
+          </Link>
+        </div>
+      </div>
+    </motion.div>
+  )}
+</AnimatePresence>
     </motion.header>
   );
 }
