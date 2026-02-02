@@ -7,6 +7,7 @@ import { Menu, X, Facebook, Instagram, ChevronDown } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import ServicesMenu from './servicemenu';
+import MobileServicesMenu from './MobileServiceMenu';
 
 export default function Header({ locale, messages }) {
   const [menuOpen, setMenuOpen] = useState(false);
