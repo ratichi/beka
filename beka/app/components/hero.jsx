@@ -17,8 +17,8 @@ export default function Hero({ locale }) {
         </h1>
         <p className="text-lg md:text-xl leading-relaxed mb-6 text-gray-200">
           {locale === 'ka'
-            ? 'ეს არის პატარა შესავალი ჩვენი ვებსაიტის შესახებ. აქ შეგიძლიათ იხილოთ ინფორმაცია ჩვენი სერვისებისა და პროდუქტების შესახებ.'
-            : 'This is a short introduction about our website. Here you can explore our services and products in detail.'}
+            ? '15 წლიანი გამოცდილების მქონე IT გუნდი მზად არის ეფექტიანად უპასუხოს თქვენს ტექნოლოგიურ გამოწვევებს.'
+            : 'An IT team with 15 years of experience, ready to effectively address your technological challenges'}
         </p>
         <motion.a
           href={`/${locale}/about`}
