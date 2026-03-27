@@ -5,18 +5,18 @@ import { Facebook, Instagram, Music2, Phone, Mail } from 'lucide-react';
 
 export default function Footer({ locale }) {
   return (
-    <footer className="bg-gray-900 text-gray-300 py-10 mt-20">
+    <footer className="bg-gray-900 text-gray-300 py-10 mt-20 min-h-[250px]">
       <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10">
         
         {/* Contact Info */}
         <div className="space-y-4">
           <div className="flex items-center gap-2">
             <Phone className="w-5 h-5 text-blue-400" />
-            <span>+995 555 123 456</span>
+            <span>032 219 33 14 </span>
           </div>
           <div className="flex items-center gap-2">
             <Mail className="w-5 h-5 text-blue-400" />
-            <span>info@example.com</span>
+            <span>info@netcore.ge</span>
           </div>
         </div>
 

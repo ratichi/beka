@@ -49,7 +49,7 @@ export default function ContactPage() {
           >
             <Phone className="w-8 h-8 text-blue-600 mb-3" />
             <h3 className="font-semibold">{t.phone}</h3>
-            <p className="text-gray-600">+995 555 123 456</p>
+            <p className="text-gray-600">032 219 33 14</p>
           </motion.div>
 
           <motion.div
@@ -60,7 +60,7 @@ export default function ContactPage() {
           >
             <Mail className="w-8 h-8 text-blue-600 mb-3" />
             <h3 className="font-semibold">{t.email}</h3>
-            <p className="text-gray-600">info@example.com</p>
+            <p className="text-gray-600">info@netcore.ge</p>
           </motion.div>
         </div>
       </div>
