@@ -1,11 +1,17 @@
 'use client';
 
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { Facebook, Instagram, Music2, Phone, Mail } from 'lucide-react';
 
 export default function Footer({ locale }) {
   return (
-    <footer className="bg-gray-900 text-gray-300 py-10 mt-20 min-h-[250px]">
+    <motion.footer
+      initial={{ y: 100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: 'easeOut', delay: 0.4 }}
+      className="bg-gray-900 text-gray-300 py-14 mt-8 min-h-[250px]"
+    >
       <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10">
         
         {/* Contact Info */}
@@ -41,9 +47,9 @@ export default function Footer({ locale }) {
       </div>
 
       {/* Bottom Bar */}
-      <div className="mt-10 border-t border-gray-700 pt-4 text-center text-sm text-gray-400">
+      <div className="mt-12 border-t border-gray-700 pt-4 text-center text-sm text-gray-400">
         © {new Date().getFullYear()} My Website. All rights reserved.
       </div>
-    </footer>
+    </motion.footer>
   );
 }
