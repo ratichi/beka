@@ -31,23 +31,7 @@ export default function Hero({ locale }) {
       </motion.div>
 
       {/* Right video box */}
-      <motion.div
-        initial={{ opacity: 0, x: 100 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 1, duration: 0.8, ease: 'easeOut' }}
-        className="hidden md:block w-[500px] h-[300px] rounded-xl overflow-hidden shadow-lg border-2 border-blue-500"
-      >
-        <video
-        controls
-        autoPlay={false}
-        loop
-        playsInline
-        className="w-full h-full object-cover"
-        >
-        <source src="/demo.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-        </video>
-      </motion.div>
+
     </section>
   );
 }
